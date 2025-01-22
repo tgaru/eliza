@@ -14,6 +14,7 @@ import { TwitterClientInterface } from "@elizaos/client-twitter";
 import { DirectClient } from "@elizaos/client-direct";
 import { PrimusAdapter } from "@elizaos/plugin-primus";
 import { devSchoolPlugin } from "@elizaos/plugin-devschool";
+import { TelegramAccountClientInterface } from "@elizaos/client-telegram-account";
 
 import {
     AgentRuntime,
@@ -546,6 +547,11 @@ export async function initializeClients(
     if (clientTypes.includes(Clients.TELEGRAM)) {
         const telegramClient = await TelegramClientInterface.start(runtime);
         if (telegramClient) clients.telegram = telegramClient;
+    }
+
+    if (clientTypes.includes(Clients.TELEGRAM_ACCOUNT)) {
+        const telegramAccountClient = await TelegramAccountClientInterface.start(runtime);
+        if (telegramAccountClient) clients.telegram_account = telegramAccountClient;
     }
 
     if (clientTypes.includes(Clients.TWITTER)) {
