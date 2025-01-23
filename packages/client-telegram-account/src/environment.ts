@@ -7,7 +7,6 @@ export const telegramAccountEnvSchema = z.object({
     TELEGRAM_ACCOUNT_APP_HASH: z.string(),
     TELEGRAM_ACCOUNT_DEVICE_MODEL: z.string(),
     TELEGRAM_ACCOUNT_SYSTEM_VERSION: z.string(),
-    TELEGRAM_ACCOUNT_POSTING_CHANNEL: z.string(),
 });
 
 export type TelegramAccountConfig = z.infer<typeof telegramAccountEnvSchema>;
@@ -47,11 +46,7 @@ export async function validateTelegramAccountConfig(
 
             TELEGRAM_ACCOUNT_SYSTEM_VERSION:
                 runtime.getSetting("TELEGRAM_ACCOUNT_SYSTEM_VERSION") ||
-                process.env.TELEGRAM_ACCOUNT_SYSTEM_VERSION,
-
-            TELEGRAM_ACCOUNT_POSTING_CHANNEL:
-                runtime.getSetting("TELEGRAM_ACCOUNT_POSTING_CHANNEL") ||
-                process.env.TELEGRAM_ACCOUNT_POSTING_CHANNEL
+                process.env.TELEGRAM_ACCOUNT_SYSTEM_VERSION
         };
 
         return telegramAccountEnvSchema.parse(telegramAccountConfig);
