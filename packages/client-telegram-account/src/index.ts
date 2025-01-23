@@ -9,8 +9,6 @@ export const TelegramAccountClientInterface: Client = {
         const telegramAccountClient = new TelegramAccountClient(runtime, telegramAccountConfig);
         await telegramAccountClient.start();
 
-        elizaLogger.success(`✅ Telegram account client successfully started for character ${runtime.character.name}`);
-
         return telegramAccountClient;
     },
     stop: async (_runtime: IAgentRuntime) => {
