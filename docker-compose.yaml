@@ -12,7 +12,7 @@ services:
             - tee:/app/telegram_account_session/
             - type: bind
               source: .env
-              target: .env
+              target: /app/.env
         ports:
             - "3123:3000"
         restart: always
