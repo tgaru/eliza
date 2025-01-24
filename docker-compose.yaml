@@ -7,12 +7,8 @@ services:
         tty: true
         volumes:
             - /var/run/tappd.sock:/var/run/tappd.sock
-            - type: bind
-              source: agent/data/db.sqlite
-              target: /app/agent/data/db.sqlite
-            - type: bind
-              source: agent/data/telegram_account_session/
-              target: /app/agent/data/telegram_account_session/
+            - tee:/app/db.sqlite
+            - tee:/app/telegram_account_session/
             - type: bind
               source: .env
               target: /app/.env
