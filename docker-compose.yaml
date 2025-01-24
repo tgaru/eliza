@@ -8,8 +8,8 @@ services:
         volumes:
             - /var/run/tappd.sock:/var/run/tappd.sock
             - tee:/app/packages/client-twitter/src/tweetcache
-            - tee:/app/agent/data/db.sqlite
-            - tee:/app/agent/data/telegram_account_session/
+            - tee:/app/db.sqlite
+            - tee:/app/telegram_account_session/
             - type: bind
               source: .env
               target: /app/.env
