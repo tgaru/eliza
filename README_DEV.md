@@ -13,3 +13,5 @@ pnpm build && pnpm start --characters="characters/c3poRu.character.json"
 pnpm start --characters="characters/c3poRu.character.json"
 
 pnpm start:client
+
+docker logs eliza-tee-1 2>&1 -tf --tail=1000
