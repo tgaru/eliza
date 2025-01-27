@@ -34,14 +34,11 @@ RUN ln -sf /usr/bin/python3 /usr/bin/python
 # Set the working directory
 WORKDIR /app
 
-COPY package.json .
-COPY pnpm-lock.yaml .
+# Copy application code
+COPY . .
 
 # Install dependencies
 RUN pnpm install --no-frozen-lockfile
-
-# Copy application code
-COPY . .
 
 # Build the project
 RUN pnpm run build && pnpm prune --prod
