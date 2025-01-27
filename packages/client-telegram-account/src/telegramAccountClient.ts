@@ -185,6 +185,8 @@ export class TelegramAccountClient {
             };
 
             if (shouldRespond) {
+                await this.client.markAsRead(chat);
+
                 await this.client.invoke(
                     new Api.messages.SetTyping({
                         peer: chat,
